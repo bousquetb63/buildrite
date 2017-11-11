@@ -17,8 +17,7 @@ var mongoConnect = "mongodb://admin:Puppidog1@ds259085.mlab.com:59085/buildrite"
 mongoose.connect(mongoConnect);
 var db = mongoose.connection;
 
-var routes = require('./routes/index');
-
+console.log(routes);
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -58,6 +57,8 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+var routes = require('./routes/index');
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
