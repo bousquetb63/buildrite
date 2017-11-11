@@ -3,9 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 
 router.get('/', function(req, res){
-    res.render('index', {
-
-    });
+    res.render('index', { user: req.user });
 });
 
 router.get('/auth/steam',
@@ -27,6 +25,18 @@ router.get('/logout', function(req, res){
 
 router.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
+});
+
+router.get('/tierlist', function(req, res) {
+  res.render('tierlist', { user: req.user });
+});
+
+router.get('/guides', function(req, res) {
+  res.render('guides', {user: req.user});
+});
+
+router.get('/createguide', function(req, res) {
+  res.render('guides', {user: req.user});
 });
 
 

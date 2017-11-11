@@ -14,32 +14,36 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Builds & Guides</a>
+            <a class="nav-link" href="guides">Builds & Guides</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Champions</a>
+            <a class="nav-link" href="tierlist">Tier lists</a>
+          </li>
+          {{#if user}}
+          <li class="nav-item">
+            <a class="nav-link" href="/account">Account</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tier lists</a>
+            <a class="nav-link" href="/logout">Logout</a>
           </li>
+          {{else}}
           <li class="nav-item">
-            <a class="nav-link" href="/users/login">Login/Signup</a>
+            <a class="nav-link" href="/auth/steam">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/logout">Logout</a>
-          </li>
+          {{/if}}
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Find builds..." aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Find stuff..." aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
     {{{body}}}
     <script src="/js/bootstrap.js"></script>
+    <script src="/js/jquery.js"></script>
   </body>
 </html>
