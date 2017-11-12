@@ -25,6 +25,7 @@ router.get('/logout', function(req, res){
 
 router.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
+  console.log(req.user);
 });
 
 router.get('/tierlist', function(req, res) {
