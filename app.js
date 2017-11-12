@@ -27,8 +27,8 @@ passport.deserializeUser(function(obj, done) {
 });
 
 passport.use(new SteamStrategy({
-    returnURL: 'http://localhost:3000/auth/steam/return',
-    realm: 'http://localhost:3000/',
+    returnURL: 'http://localhost:2729/auth/steam/return',
+    realm: 'http://localhost:2729/',
     apiKey: 'AFB5597FD1D9F1FC09431FF4456D20F5'
   },
   function(identifier, profile, done) {
@@ -109,7 +109,7 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 
 // Set Port
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 2729));
 
 app.listen(app.get('port'), function(){
 	console.log('Server started on port '+app.get('port'));

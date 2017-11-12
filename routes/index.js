@@ -37,7 +37,7 @@ router.get('/guides', function(req, res) {
 });
 
 router.get('/createguide', function(req, res) {
-  res.render('guides', {user: req.user});
+  res.render('createguide', {user: req.user});
 });
 
 
