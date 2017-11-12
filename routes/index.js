@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var Guide = require('../models/guides.js')
 // var mongoose = require('mongoose')
 
 router.get('/', function (req, res) {
@@ -15,21 +16,13 @@ router.get('/', function (req, res) {
 
 // mongoose.model('guides', {title:String,  champion:String, aboutyou:String, guide:String, playstyle:String});
 
-
-router.get('/guides', function (req, res) {
-  // mongoose.model('guides').find(function(err, users) {
-  //   res.send(guides);
-  // });
-  console.log(req)
-});
-
 router.get('/guides/:title/:champion/:aboutyou/:guide/:playstyle', function (req, res) {
   // mongoose.model('guides').find({user: req.params.userId}, function(err, posts) {
   //   mongoose.model('guides').populate(guides, {path: 'user'}, function(err, posts) {
   //     res.send(posts);
   //   });
   // });
-  
+
 });
 
 router.get('/auth/steam',
@@ -87,9 +80,24 @@ function ensureAuthenticated(req, res, next) {
 
 router.post('/createguide', function (req, res) {
   // console logging your result of your post by name in a object. You will utilize this route to add mongodb route and post to t he database.
-  
-  console.log(req.body)
 
+//  console.log(req.body);
+
+  var newGuide = Guide({
+    title: req.body.title,
+    champion: req.body.champion,
+    aboutyou: req.body.about,
+    guide: req.body.guide,
+    playstyle: req.body.guide,
+    steamID: req.body.steamID
+  });
+
+  newGuide.save(function(err) {
+    if (err) throw err;
+    console.log(newGuide)
+    console.log('Guide Made')
+    res.redirect(304, '/guides');
+  })
 })
 
 module.exports = router;

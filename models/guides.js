@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 // create the schema
 
-var userSchema = new Schema({
+var guideSchema = new Schema({
   title:String,
   champion:String,
   aboutyou:String,
@@ -14,6 +14,7 @@ var userSchema = new Schema({
 
 //initiliaze the model
 
-var User = mongoose.model('User', userSchema)
+var Guide = mongoose.model('Guide', guideSchema)
 
-module.exports = User
+
+module.exports = Guide;

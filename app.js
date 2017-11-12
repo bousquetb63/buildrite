@@ -19,8 +19,8 @@ I commented out mongodb/ mongoose stuf for now, while you figure out how to add 
 
 */
 
-// mongoose.connect(mongoConnect);
-// var db = mongoose.connection;
+mongoose.connect(mongoConnect);
+var db = mongoose.connection;
 
 passport.serializeUser(function(user, done) {
   done(null, user);

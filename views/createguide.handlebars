@@ -1,6 +1,7 @@
 <form action="/createguide" method="post">
   <div class="form-group">
     <label for="input1">Title</label>
+    <input type="hidden" name="steamID" value="{{{user.id}}}">
     <input name="title" type="text" class="form-control" id="title" placeholder="Champion build guide" required>
   </div>
   <div class="form-group">
