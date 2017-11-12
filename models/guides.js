@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var guidesSchema = new Schema({
+// create the schema
+
+var userSchema = new Schema({
   title:String,
   champion:String,
   aboutyou:String,
@@ -10,5 +12,8 @@ var guidesSchema = new Schema({
   steamID:Number
 });
 
+//initiliaze the model
 
-module.exports = guidesSchema
+var User = mongoose.model('User', userSchema)
+
+module.exports = User

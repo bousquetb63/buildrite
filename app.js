@@ -13,8 +13,14 @@ var mongoose = require('mongoose');
 var settings = require('./settings.json');
 var mongoConnect = "mongodb://admin:Puppidog1@ds259085.mlab.com:59085/buildrite";
 
-mongoose.connect(mongoConnect);
-var db = mongoose.connection;
+/*
+
+I commented out mongodb/ mongoose stuf for now, while you figure out how to add stuff to data base. You can decide on when where to position your mongo code.
+
+*/
+
+// mongoose.connect(mongoConnect);
+// var db = mongoose.connection;
 
 passport.serializeUser(function(user, done) {
   done(null, user);

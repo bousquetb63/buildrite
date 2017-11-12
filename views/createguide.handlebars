@@ -1,11 +1,11 @@
-<form onSubmit="submitGuide()">
+<form action="/createguide" method="post">
   <div class="form-group">
     <label for="input1">Title</label>
-    <input type="text" class="form-control" id="title" placeholder="Champion build guide" required>
+    <input name="title" type="text" class="form-control" id="title" placeholder="Champion build guide" required>
   </div>
   <div class="form-group">
     <label for="select1">Champion</label>
-    <select class="form-control" id="champion" required>
+    <select name="champion" class="form-control" id="champion" required>
       <option selected>Choose...</option>
       <option>Ashka</option>
       <option>Ezmo</option>
@@ -33,15 +33,15 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">About You</label>
-    <textarea class="form-control" id="aboutyou" rows="2" required></textarea>
+    <textarea name="about" class="form-control" id="aboutyou" rows="2" required></textarea>
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Guide</label>
-    <textarea class="form-control" id="guide" rows="8" required></textarea>
+    <textarea name="guide" class="form-control" id="guide" rows="8" required></textarea>
   </div>
   <div class="form-group">
     <label for="select1">Playstyle</label>
-    <select class="form-control" id="playstyle" required>
+    <select name="playstyle" class="form-control" id="playstyle" required>
       <option selected>Choose...</option>
       <option>Passive</option>
       <option>Agressive</option>
