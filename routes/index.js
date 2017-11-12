@@ -1,9 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var fs = require('fs');
 
 router.get('/', function(req, res){
     res.render('index', { user: req.user });
+});
+
+fs.readdirSync(__dirname + '/models').forEach(function(filename){
+  if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+})
+
+mongoose.model('guides', {title:String,  champion:String, aboutyou:String, guide:String, playstyle:String});
+
+router.get('/guides', fucntion (req, res) {
+  mongoose.model('guides').find(function(err, users) {
+      // console.log(users)
+    res.send(guides);
+  });
+});
+
+router.get('/guides/:title/:champion/:aboutyou/:guide/:playstyle', function(req, res) {
+  mongoose.model('guides').find({user: req.params.userId}, function(err, posts) {
+    mongoose.model('guides').populate(guides, {path: 'user'}, function(err, posts) {
+      res.send(posts);
+    });
+  });
 });
 
 router.get('/auth/steam',

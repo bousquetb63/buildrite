@@ -11,13 +11,11 @@ var SteamStrategy = require('passport-steam').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var settings = require('./settings.json');
-
 var mongoConnect = "mongodb://admin:Puppidog1@ds259085.mlab.com:59085/buildrite";
 
 mongoose.connect(mongoConnect);
 var db = mongoose.connection;
 
-console.log(routes);
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
