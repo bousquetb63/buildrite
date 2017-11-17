@@ -4,12 +4,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var expressValidator = require('express-validator');
-var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var SteamStrategy = require('passport-steam').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var cors = require('cors');
 var settings = require('./settings.json');
 var mongoConnect = "mongodb://admin:Puppidog1@ds259085.mlab.com:59085/buildrite";
 
@@ -62,6 +62,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(cors())
+
 var routes = require('./routes/index');
 
 // Set Static Folder
@@ -95,20 +97,6 @@ app.use(expressValidator({
     };
   }
 }));
-
-// Connect Flash
-app.use(flash());
-
-// Global Vars
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
-});
-
-
 
 app.use('/', routes);
 

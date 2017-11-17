@@ -13,6 +13,7 @@
     "body-parser": "*",
     "connect-flash": "*",
     "cookie-parser": "^1.4.1",
+    "cors": "^2.8.4",
     "es6-promise": "^4.1.1",
     "express": "*",
     "express-handlebars": "*",

@@ -78,6 +78,10 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/');
 }
 
+router.post('/register', function (req, res) {
+  res.send(`${req.body.email} is registered`);
+});
+
 router.post('/createguide', function (req, res) {
   // console logging your result of your post by name in a object. You will utilize this route to add mongodb route and post to t he database.
 
