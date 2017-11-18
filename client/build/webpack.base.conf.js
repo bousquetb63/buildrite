@@ -27,18 +27,9 @@ module.exports = {
       '@': resolve('src'),
     }
   },
-  module: {
+  module:
+    {
     rules: [
-      ...(config.dev.useEslint? [{
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter'),
-          emitWarning: !config.dev.showEslintErrorsInOverlay
-        }
-      }] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',

@@ -49,7 +49,6 @@ module.exports = (app, Guide) => {
       if (err) throw err;
       console.log(newGuide)
       console.log('Guide Made')
-      res.redirect(304, '/guides');
     })
   })
 }
