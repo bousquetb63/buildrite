@@ -1,7 +1,7 @@
 module.exports = {
   createGuide (req, res) {
     var newGuide = Guide({
-      title: req.body.title,
+      email: req.body.title,
       champion: req.body.champion,
       aboutyou: req.body.about,
       guide: req.body.guide,
