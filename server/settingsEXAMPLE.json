@@ -1,0 +1,16 @@
+/*
+
+Rename to settings.json
+
+*/
+
+{
+   "private":{
+     "mongo":{
+       "db_user": "user",
+       "db_password": "pass",
+       "db": "database",
+       "url": "url:port"
+     }
+   }
+}
