@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var cors = require('cors');
-var settings = require('./settings.json');
+var settings = require('./settings');
 var Guide = require('./models/guides');
 var mongoConnect = "mongodb://" + settings.private.mongo.db_user +":"
                                 + settings.private.mongo.db_password + "@"

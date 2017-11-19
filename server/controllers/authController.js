@@ -1,8 +1,16 @@
 var User = require('../models/users')
+const jwt = require('jsonwebtoken')
+var settings = require('../settings');
+function jwtSignUser (user) {
+  const ONE_WEEK = 60* 60 * 24 * 7
+  return jwt.sign(user, settings.private.auth.jwtSecret, {
+    expiresIn: ONE_WEEK
+  })
+}
 
 module.exports = {
   register (req, res) {
-    
+
       var newUser = User({
         email: req.body.email,
         username: req.body.username,
@@ -19,5 +27,28 @@ module.exports = {
           console.log('User Made!')
         }
       })
+  },
+  login (req, res) {
+    User.find({ username: req.body.username }, function(err, user) {
+      if (err) {
+        console.log(err)
+        return res.status(403).send({
+          error: `The login information is incorrect`
+        })
+      }
+      const isPasswordValid = req.body.password === user[0].password
+      if(!isPasswordValid) {
+        return res.status(403).send({
+          error: `The login information is incorrect`
+        })
+      }
+      const userJson = user[0].toJSON()
+      res.send({
+        user: userJson,
+        token: jwtSignUser(userJson)
+      })
+
+      console.log(user);
+    })
   }
 }

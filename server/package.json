@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "*",
+    "bluebird": "^3.5.1",
     "body-parser": "*",
     "cookie-parser": "^1.4.1",
     "cors": "^2.8.4",
@@ -19,6 +21,7 @@
     "express-session": "*",
     "express-validator": "*",
     "joi": "^13.0.2",
+    "jsonwebtoken": "^8.1.0",
     "mongodb": "*",
     "mongoose": "*"
   }

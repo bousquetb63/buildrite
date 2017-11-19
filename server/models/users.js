@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
 // create the schema
 
 var userSchema = new Schema({
