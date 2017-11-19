@@ -11,7 +11,7 @@ module.exports = {
       newUser.save(function(err) {
         if (err) {
           res.status(400).send({
-            error: 'This email account is already in use!'
+            error: `Email or Username is already in use!`
           })
         } else {
           res.send(newUser.toJSON())
