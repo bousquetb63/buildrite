@@ -9,20 +9,29 @@
             <div class="pl-4 pr-4 pt-2 pb-2">
             <v-form v-model="valid" ref="form" lazy-validation>
               <v-text-field
-                label="Username"
-                v-model="username"
-                required
-              ></v-text-field>
-              <v-text-field
                 label="E-mail"
                 v-model="email"
                 hint="Please enter a valid email address"
                 required
               ></v-text-field>
               <v-text-field
+                label="Username"
+                v-model="username"
+                required
+              ></v-text-field>
+              <v-text-field
                 label="Password"
                 v-model="password"
                 hint="Password must be least 8 characters"
+                :counter="8"
+                :append-icon="e1 ? 'visibility' : 'visibility_off'"
+                :append-icon-cb="() => (e1 = !e1)"
+                :type="e1 ? 'password' : 'text'"
+                required
+              ></v-text-field>
+              <v-text-field
+                label="Re-enter password"
+                v-model="repassword"
                 :counter="8"
                 :append-icon="e1 ? 'visibility' : 'visibility_off'"
                 :append-icon-cb="() => (e1 = !e1)"
@@ -40,6 +49,8 @@
                 icon="warning"
                 :value="alert"
                 transition="scale-transition"
+                dismissible
+                v-model="alert"
               >
                 <div v-html="error"></div>
               </v-alert>
@@ -63,7 +74,7 @@ import authService from '@/services/authService'
 export default {
   data () {
     return {
-      e1: false,
+      e1: true,
       alert: false,
       valid: true,
       checkbox: false,
@@ -79,7 +90,8 @@ export default {
           await authService.register({
             email: this.email,
             username: this.username,
-            password: this.password
+            password: this.password,
+            repassword: this.repassword
           })
         } catch (error) {
           this.alert = true

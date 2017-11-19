@@ -2,10 +2,11 @@ var User = require('../models/users')
 
 module.exports = {
   register (req, res) {
+    
       var newUser = User({
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password,
+        password: req.body.password
       });
 
       newUser.save(function(err) {
