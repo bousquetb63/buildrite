@@ -23,8 +23,11 @@ module.exports = {
             error: `Email or Username is already in use!`
           })
         } else {
-          res.send(newUser.toJSON())
-          console.log('User Made!')
+          const userJson = newUser.toJSON()
+          res.status(200).send({
+            user: userJson,
+            token: jwtSignUser(userJson)
+          })
         }
       })
   },
@@ -43,12 +46,10 @@ module.exports = {
         })
       }
       const userJson = user[0].toJSON()
-      res.send({
+      res.status(200).send({
         user: userJson,
         token: jwtSignUser(userJson)
       })
-
-      console.log(user);
     })
   }
 }

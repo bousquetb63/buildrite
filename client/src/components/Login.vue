@@ -54,22 +54,25 @@ export default {
       e1: true,
       alert: false,
       valid: true,
-      email: '',
       username: '',
       password: '',
       error: null
     }
   },
   methods: {
-    async register () {
+    async login () {
         try {
-          await authService.login({
+          const response = await authService.login({
             username: this.username,
             password: this.password
           })
+          console.log("got login")
+          console.log(response.data)
+          this.$store.dispatch('setToken', response.data.token)
+          this.$store.dispatch('setUser', response.data.user)
         } catch (error) {
-          this.alert = true
           this.error = error.response.data.error
+          this.alert = true
         }
      }
   }
