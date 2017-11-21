@@ -2,7 +2,7 @@
   <div class="imgBG">
     <v-layout column>
       <v-flex xs6 offset-xs3>
-        <div class="white elevation-4">
+        <div class="white elevation-4 animated fadeIn">
           <v-toolbar flat dense dark class="grey darken-3">
             <v-toolbar-title >Login</v-toolbar-title>
           </v-toolbar>
@@ -33,6 +33,8 @@
               </v-alert>
               <v-btn
                 class="elevation-3"
+                dark
+                color="green lighten-1"
                 @click="login"
                 :disabled="!valid"
               >
@@ -80,4 +82,7 @@ export default {
 </script>
 
 <style scoped>
+body {
+    overflow:hidden;
+}
 </style>

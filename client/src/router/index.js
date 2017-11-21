@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
+import Browse from '@/components/Browse'
 
 Vue.use(Router)
 
@@ -10,7 +11,7 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/ ',
       name: 'root',
       component: Home
     },
@@ -23,6 +24,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/browse',
+      name: 'browse',
+      component: Browse
     }
   ]
 })

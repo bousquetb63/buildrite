@@ -1,8 +1,8 @@
 <template>
-  <div class="imgBG">
+  <div>
     <v-layout column>
       <v-flex xs6 offset-xs3>
-        <div class="white elevation-4">
+        <div class="white elevation-4 animated fadeIn">
           <v-toolbar flat dense dark class="grey darken-3">
             <v-toolbar-title >Registration</v-toolbar-title>
           </v-toolbar>
@@ -56,6 +56,8 @@
               </v-alert>
               <v-btn
                 class="elevation-3"
+                dark
+                color="green lighten-1"
                 @click="register"
                 :disabled="!valid"
               >
@@ -81,6 +83,7 @@ export default {
       email: '',
       username: '',
       password: '',
+      repassword: '',
       error: null
     }
   },
@@ -96,8 +99,8 @@ export default {
           this.$store.dispatch('setToken', response.data.token)
           this.$store.dispatch('setUser', response.data.user)
         } catch (error) {
-          this.alert = true
           this.error = error.response.data.error
+          this.alert = true
         }
      }
   }
