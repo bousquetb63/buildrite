@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <v-app>
-      <page-header class="headerSpacing"/>
       <main>
-        <v-container fluid>
-          <router-view></router-view>
-        </v-container>
+        <page-header />
+        <v-content>
+          <v-container fluid>
+            <router-view></router-view>
+          </v-container>
+        </v-content>
       </main>
+      <v-footer app dark></v-footer>
     </v-app>
   </div>
 </template>

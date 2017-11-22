@@ -10,7 +10,6 @@ function jwtSignUser (user) {
 
 module.exports = {
   register (req, res) {
-
       var newUser = User({
         email: req.body.email,
         username: req.body.username,
@@ -32,6 +31,16 @@ module.exports = {
       })
   },
   login (req, res) {
+    if (req.body.username === '') {
+      return res.status(403).send({
+        error: `Please enter a username`
+      })
+    }
+    if (req.body.password === '') {
+      return res.status(403).send({
+        error: `Please enter a password`
+      })
+    }
     User.find({ username: req.body.username }, function(err, user) {
       if (err) {
         console.log(err)

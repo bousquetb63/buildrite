@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed dark class="grey darken-3">
+  <v-toolbar fixed scroll-off-screen dark class="grey darken-3">
     <v-toolbar-title class="mr-4">
       ORB.GG
     </v-toolbar-title>

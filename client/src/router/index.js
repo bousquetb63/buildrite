@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-import Browse from '@/components/Browse'
+import Browse from '@/components/Guides'
+import CreateGuide from '@/components/CreateGuide'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/browse',
       name: 'browse',
       component: Browse
+    },
+    {
+      path: '/guides/create',
+      name: 'guides-create',
+      component: CreateGuide
     }
   ]
 })

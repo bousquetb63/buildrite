@@ -1,5 +1,5 @@
 const authController = require('./controllers/authController')
-const guideController = require('./controllers/guideController')
+const guidesController = require('./controllers/guidesController')
 const authControllerPolicy = require('./policies/authControllerPolicy')
 module.exports = (app) => {
 
@@ -9,7 +9,11 @@ module.exports = (app) => {
               authController.register)
   app.post('/login',
               authController.login)
+
+
   // Guide creation and management
-  app.post('/createguide',
-              guideController.createGuide)
+  app.get('/guides',
+              guidesController.index)
+  app.post('/guides',
+              guidesController.post)
 }
