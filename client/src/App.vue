@@ -3,13 +3,10 @@
     <v-app>
       <main>
         <page-header />
-        <v-content>
-          <v-container fluid>
-            <router-view></router-view>
-          </v-container>
-        </v-content>
+        <v-container fluid>
+          <router-view></router-view>
+        </v-container>
       </main>
-      <v-footer app dark></v-footer>
     </v-app>
   </div>
 </template>
