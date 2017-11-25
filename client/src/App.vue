@@ -3,7 +3,7 @@
     <v-app>
       <main>
         <page-header />
-        <v-container fluid>
+        <v-container fluid class="spaceBelow">
           <router-view></router-view>
         </v-container>
       </main>
@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style>
+.spaceBelow {
+  margin-top: 90px;
+}
 #app {
   color: grey darken-1;
   background: url(./assets/img/background.png) no-repeat center center fixed;
