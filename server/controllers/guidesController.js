@@ -8,12 +8,6 @@ module.exports = {
       champion: req.body.champion,
       aboutYou: req.body.aboutYou,
       guide: req.body.guide,
-      advancedGuide: req.body.advancedGuide,
-      orbControl: req.body.orbControl,
-      difficulty: req.body.difficulty,
-      strengths: req.body.strengths,
-      weaknesses: req.body.weaknesses,
-      playstyle: req.body.playstyle,
     });
 
     newGuide.save(function(err) {

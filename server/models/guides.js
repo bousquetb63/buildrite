@@ -7,14 +7,13 @@ var guideSchema = new Schema({
   title: String,
   author: String,
   champion: String,
-  aboutYou: String,
+  battlerites: [
+    {
+      name: String,
+      img: String
+    }
+  ]
   guide: String,
-  advancedGuide: String,
-  orbControl: String,
-  difficulty: Number,
-  strengths: [{ strength: String }],
-  weaknesses: [{ weakness: String }],
-  playstyle: String,
   hidden: { type: Boolean, default: false },
   created_at: { type: Date, default: Date.now }
 });
